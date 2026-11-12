@@ -1,0 +1,25 @@
+/* Hoja principal: define el orden de carga. El build la combina en un único styles.css. */
+
+@import "base/tokens.css";
+@import "base/reset.css";
+@import "base/typography.css";
+@import "base/layout.css";
+@import "components/buttons.css";
+@import "components/nav.css";
+@import "components/labels.css";
+@import "components/illustrations.css";
+@import "components/reveal.css";
+@import "components/cursor.css";
+@import "sections/hero.css";
+@import "sections/empresa.css";
+@import "sections/soluciones.css";
+@import "sections/ecosistema.css";
+@import "sections/porque.css";
+@import "sections/metodo.css";
+@import "sections/servicio.css";
+@import "sections/aplicaciones.css";
+@import "sections/ciberseguridad.css";
+@import "sections/preguntas.css";
+@import "sections/contacto.css";
+@import "sections/footer.css";
+@import "pages/legal.css";

@@ -1,0 +1,25 @@
+/* Ilustraciones SVG animadas. */
+
+.il .s{fill:none;stroke:var(--fg);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;opacity:.72}
+.il .p{fill:var(--panel);stroke:var(--fg);stroke-width:1.4;stroke-linejoin:round}
+.il .a{stroke:var(--acc);opacity:1}
+.il .af{fill:var(--acc)}
+.il .rf{fill:var(--red)}
+.il .t{font:600 11.5px var(--f);font-stretch:var(--narrow);letter-spacing:.04em;fill:var(--mut)}
+.il .flow{fill:none;stroke:var(--acc);stroke-width:2.2;stroke-linecap:round;stroke-dasharray:12 168;animation:flow 2.6s linear infinite}
+.il .blink{animation:blink 1.5s steps(2,jump-none) infinite}
+.il .bar{transform-box:fill-box;transform-origin:50% 100%;animation:grow 5s var(--ease-io) infinite}
+.il .frame{fill:none;stroke:var(--acc);stroke-width:1.6;stroke-dasharray:880;animation:frame 7s linear infinite}
+.il .sweep{transform-origin:230px 180px;animation:sweep 5s linear infinite}
+.il .halo2{fill:none;stroke:var(--red);stroke-width:1.4;transform-box:fill-box;transform-origin:center;animation:halo2 2.4s var(--ease) infinite}
+.svc .il *{animation-play-state:paused}
+.svc.is-on .il *{animation-play-state:running}
+.il .spin{transform-box:fill-box;transform-origin:center;animation:spin 4s linear infinite}
+.il .sweep{transform-origin:200px 180px;animation:spin 5s linear infinite}
+.il .bad{stroke:var(--red);opacity:1}
+@keyframes sweep{to{transform:rotate(360deg)}}
+@keyframes halo2{from{transform:scale(.5);opacity:.9}to{transform:scale(1.9);opacity:0}}
+@keyframes flow{from{stroke-dashoffset:180}to{stroke-dashoffset:0}}
+@keyframes blink{from{opacity:1}to{opacity:.2}}
+@keyframes grow{0%,8%{transform:scaleY(.12)}30%,88%{transform:none}100%{transform:scaleY(.12)}}
+@keyframes frame{0%,30%{stroke-dashoffset:880;opacity:0}32%{opacity:1}54%,84%{stroke-dashoffset:0;opacity:1}96%,100%{stroke-dashoffset:0;opacity:0}}

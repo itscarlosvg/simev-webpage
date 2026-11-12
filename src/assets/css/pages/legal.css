@@ -1,0 +1,11 @@
+/* Página: política de privacidad. */
+
+.legal{padding-block:calc(var(--nav-h) + clamp(48px,7vw,96px)) var(--sec)}
+.legal-head{display:grid;gap:20px;max-width:46rem;padding-bottom:clamp(32px,4vw,56px)}
+.legal-head h1{font-size:clamp(2.2rem,5vw,4.2rem)}
+.legal-body{display:grid;gap:14px;max-width:46rem}
+.legal-body section{display:grid;gap:10px;padding:24px 26px;border:1px solid var(--line);border-radius:var(--r-m);background:var(--panel)}
+.legal-body h2{font-size:clamp(1.25rem,2vw,1.5rem);line-height:1.2}
+.legal-body p{color:var(--mut);max-width:62ch}
+.legal-body a{color:var(--fg);text-decoration:underline;text-underline-offset:3px}
+.legal-back{justify-self:start;margin-top:12px}

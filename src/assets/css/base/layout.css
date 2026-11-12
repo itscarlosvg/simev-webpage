@@ -1,0 +1,17 @@
+/* Contenedores, retícula de 12 columnas y cabecera de sección. */
+
+.wrap{padding-left:max(var(--gut),env(safe-area-inset-left,0px));padding-right:max(var(--gut),env(safe-area-inset-right,0px))}
+.inner{max-width:var(--max);margin-inline:auto}
+.g{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px}
+.head{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:28px;padding-block:var(--sec) clamp(48px,6vw,88px)}
+.head .sec-name{grid-column:1 / span 2;align-self:start;padding-top:.95em}
+.head h2{grid-column:3 / span 9}
+.head .lede{grid-column:3 / span 6}
+section{scroll-margin-top:calc(var(--nav-h) - 1px)}
+@media (max-width:900px){
+  .head{row-gap:20px}
+  .head .sec-name{grid-column:1 / -1}
+  .head h2{grid-column:1 / -1}
+  .head .lede{grid-column:1 / -1}
+  .head .sec-name{padding-top:0}
+}

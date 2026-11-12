@@ -1,0 +1,18 @@
+/* Escala tipográfica y estilos de texto reutilizables. */
+
+h1{margin:0}
+h2{margin:0}
+h3{margin:0}
+h1{font-stretch:var(--wide);font-weight:650;letter-spacing:-.03em;line-height:.98;text-wrap:balance}
+h2{font-stretch:var(--wide);font-weight:650;letter-spacing:-.03em;line-height:.98;text-wrap:balance}
+h1{font-size:clamp(2.5rem,5.9vw,6rem)}
+h2{font-size:clamp(2rem,4.3vw,4rem)}
+h3{font-weight:600;letter-spacing:-.015em;line-height:1.15}
+.lede{font-size:clamp(1.0625rem,1.4vw,1.3125rem);line-height:1.5;color:var(--mut);max-width:50ch;text-wrap:pretty}
+.cap{font-stretch:var(--narrow);font-weight:500;font-size:.8125rem;line-height:1.3;letter-spacing:.03em;color:var(--mut)}
+.sec-name{font-stretch:var(--narrow);font-weight:600;font-size:.9375rem;line-height:1.2;letter-spacing:.02em;display:flex;align-items:center;gap:10px}
+.sec-name::before{content:"";flex:none;width:8px;height:8px;background:var(--red)}
+.ul{background:linear-gradient(currentColor,currentColor) 0 100%/100% 1px no-repeat;padding-bottom:3px;transition:background-size .45s var(--ease)}
+.ul:hover{background-size:0 1px;background-position:100% 100%}
+.gt{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sec-name::before{width:10px;height:10px;border-radius:50%;background:var(--grad)}

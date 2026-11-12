@@ -1,0 +1,40 @@
+# ── SIMEV · configuración de Apache para cPanel ──
+
+DirectoryIndex index.html
+Options -Indexes
+ErrorDocument 404 /404.html
+
+# HTTPS obligatorio y dominio sin www
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off [OR]
+  RewriteCond %{HTTP_HOST} ^www\. [NC]
+  RewriteRule ^ https://simev.cl%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# Tipo correcto para los módulos JavaScript
+AddType text/javascript .js
+
+# Compresión
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript image/svg+xml application/xml text/plain
+</IfModule>
+
+# Caché: los CSS y JS llevan versión en la URL, así que pueden guardarse mucho tiempo
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 hour"
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType text/javascript "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/png "access plus 1 month"
+</IfModule>
+
+# Cabeceras de seguridad
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>

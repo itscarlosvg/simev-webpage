@@ -1,0 +1,55 @@
+/* Sección: Ciberseguridad. */
+
+.cyber{padding-bottom:var(--sec)}
+.cy-g{align-items:start;row-gap:48px}
+.cy-radar{grid-column:1 / span 5;display:grid;gap:26px;justify-items:start;position:sticky;top:calc(var(--nav-h) + 32px)}
+.cy-radar p{color:var(--mut);max-width:36ch}
+.radar{position:relative;width:min(100%,430px);aspect-ratio:1;border-radius:50%;border:1px solid color-mix(in srgb,var(--acc) 45%,transparent);overflow:hidden;background:
+  linear-gradient(var(--line),var(--line)) 50% 0/1px 100% no-repeat,
+  linear-gradient(var(--line),var(--line)) 0 50%/100% 1px no-repeat,
+  radial-gradient(closest-side,transparent 24.6%,var(--line) 24.6% 25.3%,transparent 25.3% 49.6%,var(--line) 49.6% 50.3%,transparent 50.3% 74.6%,var(--line) 74.6% 75.3%,transparent 75.3%),
+  var(--panel)}
+.radar::before{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,transparent 0 290deg,color-mix(in srgb,var(--acc) 55%,transparent) 360deg);animation:sweep 5s linear infinite}
+.radar::after{content:"";position:absolute;left:50%;top:50%;width:10px;height:10px;margin:-5px;border-radius:50%;background:var(--fg)}
+.radar i{position:absolute;left:var(--x);top:var(--y);width:10px;height:10px;margin:-5px;border-radius:50%;background:var(--acc);animation:blip 5s linear infinite;animation-delay:var(--d)}
+.radar i.r{background:var(--red);box-shadow:0 0 0 6px color-mix(in srgb,var(--red) 30%,transparent)}
+@keyframes blip{0%{opacity:1;transform:scale(1.7)}25%{opacity:.65;transform:none}100%{opacity:.3}}
+.cy-list{grid-column:7 / span 6;display:grid;gap:14px}
+.hu li{display:grid;grid-template-columns:6.2rem minmax(0,11.5rem) minmax(0,1fr);gap:4px 18px;align-items:baseline;padding:15px 0;border-top:1px solid var(--line);position:relative}
+.hu li:last-child{border-bottom:1px solid var(--line)}
+.hu li::before{content:"";position:absolute;left:0;top:-1px;width:100%;height:2px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.hu b{font-stretch:var(--narrow);font-weight:700;font-size:.9375rem;letter-spacing:.04em;color:var(--acc)}
+.hu span{font-weight:600}
+.hu p{color:var(--mut);font-size:.9688rem;line-height:1.45}
+@media (hover:hover){
+  .hu li:hover::before{transform:scaleX(1)}
+}
+.cy-serv{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px clamp(20px,2.4vw,40px);margin-top:clamp(56px,7vw,96px)}
+.cy-serv>.cap{grid-column:1 / -1}
+.cy-serv>div{border-top:1px solid var(--fg);padding-top:18px;display:grid;gap:10px;align-content:start}
+.cy-serv h3{font-size:1.25rem}
+.cy-serv div p{color:var(--mut);font-size:.9844rem}
+.cy-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:28px;margin-top:clamp(40px,5vw,64px);padding-top:28px;border-top:1px solid var(--line)}
+.fw{display:flex;flex-wrap:wrap;gap:8px}
+.fw li{border:1px solid var(--line);padding:7px 12px;border-radius:3px;font-stretch:var(--narrow);font-weight:600;font-size:.875rem}
+.radar{border-color:color-mix(in srgb,var(--c2) 55%,transparent);box-shadow:0 0 90px -24px color-mix(in srgb,var(--c2) 80%,transparent)}
+.radar::before{background:conic-gradient(from 0deg,transparent 0 270deg,color-mix(in srgb,var(--c2) 60%,transparent) 335deg,color-mix(in srgb,var(--c1) 85%,transparent) 360deg)}
+.radar i{background:#9db8ff}
+.radar i.r{background:var(--c3);box-shadow:0 0 0 6px color-mix(in srgb,var(--c3) 30%,transparent)}
+.hu li{grid-template-columns:7.6rem minmax(0,11.5rem) minmax(0,1fr);align-items:center}
+.hu li::before{background:var(--grad)}
+.hu b{justify-self:start;padding:5px 12px;border-radius:999px;background:color-mix(in srgb,var(--c2) 28%,transparent);color:var(--fg);font-size:.8125rem;letter-spacing:.02em}
+.cy-serv>div{border:1px solid var(--line);border-radius:var(--r-m);background:var(--panel);padding:24px}
+.fw li{border-radius:999px;padding:8px 14px}
+@media (max-width:900px){
+  .cy-radar{grid-column:1 / -1}
+  .cy-list{grid-column:1 / -1}
+  .cy-radar{position:static}
+  .radar{width:min(100%,320px)}
+  .hu li{grid-template-columns:auto minmax(0,1fr)}
+  .hu p{grid-column:1 / -1}
+  .cy-serv{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:520px){
+  .cy-serv{grid-template-columns:1fr}
+}

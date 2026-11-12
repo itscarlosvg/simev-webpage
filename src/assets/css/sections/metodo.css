@@ -1,0 +1,38 @@
+/* Sección: Metodo. */
+
+.method-g{align-items:start;padding-bottom:var(--sec)}
+.dial{grid-column:1 / span 5;position:sticky;top:calc(var(--nav-h) + 40px);display:grid;gap:20px}
+.dial-num{font-stretch:var(--wide);font-weight:700;font-size:clamp(6rem,15vw,13.5rem);line-height:.8;letter-spacing:-.05em;font-variant-numeric:tabular-nums;color:var(--acc);overflow:hidden;padding-bottom:.04em}
+.dial-num span{display:block}
+.dial-num span.flip{animation:flip .6s var(--ease)}
+@keyframes flip{from{transform:translateY(60%);opacity:0}to{transform:none;opacity:1}}
+.dial-ttl{font-stretch:var(--wide);font-weight:650;font-size:clamp(1.5rem,2.3vw,2.2rem);letter-spacing:-.028em;line-height:1.05}
+.dial-nav{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;max-width:340px}
+.dial-nav button{height:34px;border:0;background:none;padding:0;position:relative;font-stretch:var(--narrow);font-weight:600;font-size:.8125rem;color:var(--mut);text-align:left;transition:color .3s}
+.dial-nav button::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--line);transition:background-color .3s}
+.dial-nav button.is-done::before{background:var(--fg)}
+.dial-nav button.is-active{color:var(--fg)}
+.dial-nav button.is-active::before{background:var(--red)}
+.steps{grid-column:7 / span 6}
+.step{display:grid;grid-template-columns:3.2rem minmax(0,1fr);gap:8px 12px;padding-block:clamp(30px,4.4vw,60px);border-top:1px solid var(--line);scroll-margin-top:calc(var(--nav-h) + 40px);transition:opacity .5s var(--ease)}
+.step:last-child{border-bottom:1px solid var(--line)}
+.step b{font-stretch:var(--narrow);font-weight:600;font-size:.9375rem;color:var(--acc);font-variant-numeric:tabular-nums;padding-top:.35em}
+.step h3{font-size:clamp(1.375rem,2vw,1.75rem)}
+.step p{grid-column:2;color:var(--mut);max-width:46ch}
+.js .steps.live .step{opacity:.34}
+.js .steps.live .step.is-active{opacity:1}
+.dial-num span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.dial-nav button::before{height:3px;border-radius:3px}
+.dial-nav button.is-active::before{background:var(--grad)}
+.step{border:1px solid var(--line);border-radius:var(--r-m);background:var(--panel);padding:26px 26px 28px;margin-bottom:12px;transition:opacity .5s var(--ease),border-color .5s var(--ease),box-shadow .5s var(--ease)}
+.step:last-child{border-bottom:1px solid var(--line)}
+.js .steps.live .step{opacity:.55}
+.js .steps.live .step.is-active{opacity:1;border-color:color-mix(in srgb,var(--c2) 50%,var(--line));box-shadow:0 24px 60px -36px color-mix(in srgb,var(--c2) 85%,transparent)}
+@media (max-width:900px){
+  .dial{display:none}
+  .steps{grid-column:1 / -1}
+  .js .steps.live .step{opacity:1}
+}
+@media (prefers-reduced-motion:reduce){
+  .js .steps.live .step{opacity:1}
+}

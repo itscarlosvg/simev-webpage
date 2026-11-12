@@ -1,0 +1,32 @@
+/* Sección: Preguntas. */
+
+.faq-g{align-items:start;padding-block:var(--sec)}
+.faq-side{grid-column:1 / span 4;position:sticky;top:calc(var(--nav-h) + 40px);display:grid;gap:26px;justify-items:start}
+.faq-list{grid-column:6 / span 7}
+.qa{border-top:1px solid var(--line)}
+.qa:last-child{border-bottom:1px solid var(--line)}
+.qa-q{width:100%;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;text-align:left;background:none;border:0;padding:24px 0;font-size:clamp(1.125rem,1.55vw,1.375rem);font-weight:600;letter-spacing:-.012em;line-height:1.25}
+.qa-ic{width:34px;height:34px;border:1px solid var(--line);border-radius:50%;position:relative;transition:background-color .3s var(--ease),border-color .3s var(--ease),color .3s var(--ease)}
+.qa-ic::before{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.5px;margin:-.75px 0 0 -6px;background:currentColor;transition:transform .45s var(--ease)}
+.qa-ic::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.5px;margin:-.75px 0 0 -6px;background:currentColor;transition:transform .45s var(--ease)}
+.qa-ic::after{transform:rotate(90deg)}
+.qa.is-open .qa-ic{background:var(--fg);border-color:var(--fg);color:var(--bg)}
+.qa.is-open .qa-ic::after{transform:rotate(0)}
+.qa-q:hover .qa-ic{border-color:var(--fg)}
+.qa-a{display:grid;grid-template-rows:1fr;transition:grid-template-rows .55s var(--ease)}
+.js .qa:not(.is-open) .qa-a{grid-template-rows:0fr}
+.qa-a>div{overflow:hidden;min-height:0}
+.qa-a p{padding:0 58px 28px 0;color:var(--mut);max-width:60ch}
+.qa{border:1px solid var(--line);border-radius:var(--r-m);background:var(--panel);padding:0 24px;margin-bottom:12px;transition:border-color .35s var(--ease),box-shadow .35s var(--ease)}
+.qa:last-child{border-bottom:1px solid var(--line)}
+.qa.is-open{border-color:color-mix(in srgb,var(--c2) 50%,var(--line));box-shadow:0 24px 60px -38px color-mix(in srgb,var(--c2) 85%,transparent)}
+.qa.is-open .qa-ic{background:var(--grad);border-color:transparent;color:#fff}
+.qa-a p{padding-right:24px}
+@media (max-width:900px){
+  .faq-side{grid-column:1 / -1}
+  .faq-list{grid-column:1 / -1}
+  .faq-side{position:static;padding-bottom:40px}
+}
+@media (max-width:520px){
+  .qa-a p{padding-right:0}
+}

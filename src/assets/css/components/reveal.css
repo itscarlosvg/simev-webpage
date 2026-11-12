@@ -1,0 +1,17 @@
+/* Revelados al hacer scroll y resplandores de fondo. */
+
+.rv{transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.pre{opacity:0;transform:translateY(22px)}
+.rh{transition:clip-path 1.1s var(--ease),transform 1.1s var(--ease)}
+.rh.pre{clip-path:inset(0 0 100% 0);transform:translateY(.45em)}
+.aur{position:relative;isolation:isolate}
+.aur::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none}
+.a1::before{background:radial-gradient(36% 40% at 94% 6%,color-mix(in srgb,var(--c2) 24%,transparent),transparent 72%),radial-gradient(30% 36% at 0% 72%,color-mix(in srgb,var(--c1) 20%,transparent),transparent 72%)}
+.a2::before{background:radial-gradient(40% 44% at 4% 10%,color-mix(in srgb,var(--c1) 34%,transparent),transparent 72%),radial-gradient(36% 42% at 98% 60%,color-mix(in srgb,var(--c2) 36%,transparent),transparent 72%),radial-gradient(26% 30% at 58% 100%,color-mix(in srgb,var(--c3) 20%,transparent),transparent 72%)}
+.a3::before{background:radial-gradient(34% 40% at 6% 4%,color-mix(in srgb,var(--c3) 15%,transparent),transparent 72%),radial-gradient(34% 40% at 100% 86%,color-mix(in srgb,var(--c1) 22%,transparent),transparent 72%)}
+@media (prefers-reduced-motion:reduce){
+  .rv{opacity:1;transform:none;clip-path:none;transition:none}
+  .rv.pre{opacity:1;transform:none;clip-path:none;transition:none}
+  .rh{opacity:1;transform:none;clip-path:none;transition:none}
+  .rh.pre{opacity:1;transform:none;clip-path:none;transition:none}
+}

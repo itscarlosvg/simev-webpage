@@ -1,0 +1,26 @@
+/* Sección: Aplicaciones. */
+
+.apps{padding-bottom:var(--sec)}
+.plates{display:flex;gap:clamp(14px,1.6vw,24px);overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none;padding-inline:var(--edge);scroll-padding-inline:var(--edge);cursor:grab}
+.plates::-webkit-scrollbar{display:none}
+.plates.is-drag{cursor:grabbing;scroll-snap-type:none;scroll-behavior:auto}
+.plates.is-drag *{pointer-events:none}
+.plate{flex:0 0 clamp(266px,27vw,372px);scroll-snap-align:start;display:grid;grid-template-rows:auto 1fr;border:1px solid var(--line);background:var(--panel);user-select:none;-webkit-user-select:none}
+.plate svg{width:100%;height:auto;aspect-ratio:8/5;border-bottom:1px solid var(--line);background:
+  linear-gradient(color-mix(in srgb,var(--line) 45%,transparent) 1px,transparent 1px) 0 -1px/100% 24px,
+  linear-gradient(90deg,color-mix(in srgb,var(--line) 45%,transparent) 1px,transparent 1px) -1px 0/24px 100%}
+.plate-b{padding:22px 22px 28px;display:grid;gap:12px;align-content:start}
+.plate h3{font-size:1.3125rem}
+.plate p{color:var(--mut);font-size:.9844rem;line-height:1.5}
+.plate .crit{color:var(--fg);font-weight:600;font-size:.9375rem;display:flex;gap:10px;align-items:baseline}
+.plate .crit::before{content:"";flex:none;width:7px;height:7px;background:var(--red)}
+.plates-ctl{display:flex;align-items:center;gap:14px;padding-top:28px}
+.plates-ctl i{flex:1;height:1px;background:var(--line);position:relative}
+.plates-ctl i::after{content:"";position:absolute;left:0;top:-1px;height:3px;width:100%;background:var(--fg);transform-origin:left;transform:scaleX(var(--p,.2))}
+.plate .crit::before{width:8px;height:8px;border-radius:50%;background:var(--grad)}
+.plates-ctl i::after{background:var(--grad);border-radius:3px}
+.plates{padding-block:12px 16px}
+.plate{border-radius:var(--r-m);overflow:hidden;transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s var(--ease)}
+@media (hover:hover){
+  .plate:hover{transform:translateY(-6px);border-color:color-mix(in srgb,var(--c2) 45%,var(--line));box-shadow:0 30px 70px -42px color-mix(in srgb,var(--c2) 90%,transparent)}
+}

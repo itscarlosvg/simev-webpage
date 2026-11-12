@@ -1,0 +1,11 @@
+/* Cursor personalizado (solo con ratón). */
+
+.cur{position:fixed;left:0;top:0;z-index:90;pointer-events:none;width:34px;height:34px;margin:-17px 0 0 -17px;border:1px solid color-mix(in srgb,var(--fg) 70%,transparent);border-radius:50%;opacity:0;display:grid;place-items:center;transition:opacity .3s,width .4s var(--ease),height .4s var(--ease),margin .4s var(--ease),background-color .3s,border-color .3s}
+.cur.on{opacity:1}
+.cur.act{width:56px;height:56px;margin:-28px 0 0 -28px;background:color-mix(in srgb,var(--fg) 12%,transparent);border-color:var(--fg)}
+.cur.lab{width:84px;height:84px;margin:-42px 0 0 -42px;background:var(--fg);border-color:var(--fg)}
+.cur span{font-stretch:var(--narrow);font-weight:700;font-size:.8125rem;color:var(--bg);opacity:0;transition:opacity .2s}
+.cur.lab span{opacity:1}
+@media (prefers-reduced-motion:reduce){
+  .cur{display:none}
+}

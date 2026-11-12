@@ -1,0 +1,4 @@
+# Solo enviar.php es accesible desde fuera
+<FilesMatch "^(?!enviar\.php$).*">
+  Require all denied
+</FilesMatch>

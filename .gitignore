@@ -1,0 +1,17 @@
+# Generados
+dist/
+preview/
+node_modules/
+
+# Claves y configuración privada
+src/public/api/config.php
+.env
+.env.*
+*.key
+*.pem
+
+# Sistema
+.DS_Store
+Thumbs.db
+*.log
+*.zip

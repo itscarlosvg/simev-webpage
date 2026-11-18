@@ -1,31 +1,27 @@
 /* Variables de diseño: color, tipografía, radios, movimiento y los tres ambientes (night, day, blue). */
 
-@property --bg{syntax:"<color>";inherits:true;initial-value:#070a1f}
-@property --fg{syntax:"<color>";inherits:true;initial-value:#f5f6ff}
-@property --mut{syntax:"<color>";inherits:true;initial-value:#a6abcf}
-@property --line{syntax:"<color>";inherits:true;initial-value:#1e2350}
-@property --panel{syntax:"<color>";inherits:true;initial-value:#0f1334}
-@property --acc{syntax:"<color>";inherits:true;initial-value:#7da2ff}
-:root{--night:#070a1f;--day:#f4f5fd;--ink:#0b0e2c;--blue:#2f6bff;--sky:#7da2ff;--red:#ff3d6e;
-  --c1:#2f6bff;--c2:#7c4dff;--c3:#ff3d6e;--grad:linear-gradient(100deg,var(--c1) 0%,var(--c2) 52%,var(--c3) 100%);
-  --r-s:14px;--r-m:22px;--r-l:30px;
-  --f:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
-  --wide:125%;--narrow:82%;
+@property --bg{syntax:"<color>";inherits:true;initial-value:#000000}
+@property --fg{syntax:"<color>";inherits:true;initial-value:#f5f5f7}
+@property --mut{syntax:"<color>";inherits:true;initial-value:#a1a1a6}
+@property --line{syntax:"<color>";inherits:true;initial-value:#2c2c2e}
+@property --panel{syntax:"<color>";inherits:true;initial-value:#1c1c1e}
+@property --acc{syntax:"<color>";inherits:true;initial-value:#2997ff}
+:root{--night:#000000;--day:#ffffff;--ink:#1d1d1f;--blue:#0071e3;--sky:#2997ff;--red:var(--acc);
+  --c1:#0071e3;--c2:var(--acc);--c3:var(--acc);--grad:var(--c1);
+  --r-s:12px;--r-m:20px;--r-l:28px;
+  --f:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --wide:100%;--narrow:100%;
   --ease:cubic-bezier(.22,1,.36,1);--ease-io:cubic-bezier(.65,0,.35,1);
   --nav-h:84px;--sec:clamp(96px,11vw,176px);--gut:clamp(16px,4vw,56px);--max:1320px;
   --edge:max(var(--gut),calc((100vw - var(--max)) / 2));
   --logo-night:url("../img/logo-night.png");--logo-day:url("../img/logo-day.png");
   color-scheme:dark;}
-[data-tone="night"]{--bg:#070a1f;--fg:#f5f6ff;--mut:#a6abcf;--line:#1e2350;--panel:#0f1334;--acc:#7da2ff}
-[data-tone="day"]{--bg:#f4f5fd;--fg:#0b0e2c;--mut:#565b80;--line:#dcdff3;--panel:#ffffff;--acc:#3f57f5}
-[data-tone="blue"]{--bg:#4a3fe6;--fg:#ffffff;--mut:#e9e7ff;--line:#9d97f4;--panel:#5a4cee;--acc:#ffffff}
-[data-tone="blue"] .btn-1{background:#fff;color:#2a30d2;box-shadow:0 14px 36px -14px rgba(10,10,70,.7)}
-@media (hover:hover){
-  [data-tone="blue"] .btn-1:hover{background:#fff;transform:translateY(-2px);box-shadow:0 20px 46px -14px rgba(10,10,70,.8)}
-}
+[data-tone="night"]{--bg:#000000;--fg:#f5f5f7;--mut:#a1a1a6;--line:#2c2c2e;--panel:#1c1c1e;--acc:#2997ff}
+[data-tone="day"]{--bg:#ffffff;--fg:#1d1d1f;--mut:#6e6e73;--line:#d2d2d7;--panel:#f5f5f7;--acc:#0071e3}
+[data-tone="blue"]{--bg:#161617;--fg:#f5f5f7;--mut:#a1a1a6;--line:#3a3a3c;--panel:#2c2c2e;--acc:#2997ff}
 @media (max-width:900px){
-  :root{--nav-h:78px;--wide:112%}
+  :root{--nav-h:78px}
 }
 @media (max-width:520px){
-  :root{--wide:106%}
+  :root{}
 }

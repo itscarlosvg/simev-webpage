@@ -45,18 +45,13 @@ export function initContacto() {
     const form = $("#form"), status = $("#status");
     if (!form) return;
     const msgs = { nombre: "Ingresa tu nombre.", correo: "Ingresa un correo válido.", mensaje: "Cuéntanos brevemente qué necesitas.", acepto: "Acepta la política para continuar." };
-    const capBox = $("#recaptcha"), capErr = $(".err", capBox.closest(".fld"));
-    let widget = null;
-
-    // reCAPTCHA v2: el script de Google se carga solo cuando el formulario está cerca.
+    // reCAPTCHA v3: invisible; el script de Google se carga solo cuando el formulario está cerca.
+    const key = CONFIG.recaptchaSiteKey;
     const loadRecaptcha = () => {
-      if (!CONFIG.recaptchaSiteKey || window.grecaptcha || $("#recaptcha-js")) return;
-      window.onRecaptchaLoad = () => {
-        widget = grecaptcha.render(capBox, { sitekey: CONFIG.recaptchaSiteKey, theme: "dark", callback: () => { capErr.textContent = ""; capBox.closest(".fld").removeAttribute("data-bad"); } });
-      };
+      if (!key || $("#recaptcha-js")) return;
       const sc = document.createElement("script");
-      sc.id = "recaptcha-js"; sc.async = true; sc.defer = true;
-      sc.src = "https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit&hl=es-419";
+      sc.id = "recaptcha-js"; sc.async = true;
+      sc.src = "https://www.google.com/recaptcha/api.js?render=" + encodeURIComponent(key) + "&hl=es-419";
       document.head.appendChild(sc);
     };
     if ("IntersectionObserver" in window) {
@@ -64,6 +59,16 @@ export function initContacto() {
       io.observe(form);
     } else loadRecaptcha();
     form.addEventListener("focusin", loadRecaptcha, { once: true });
+    const getToken = () => new Promise((ok, fail) => {
+      loadRecaptcha();
+      const t0 = Date.now();
+      const wait = () => {
+        if (window.grecaptcha && grecaptcha.execute) grecaptcha.ready(() => grecaptcha.execute(key, { action: "contacto" }).then(ok, fail));
+        else if (Date.now() - t0 > 10000) fail(new Error("No se pudo cargar la verificación. Revisa tu conexión e inténtalo de nuevo."));
+        else setTimeout(wait, 150);
+      };
+      wait();
+    });
 
     const check = input => {
       const f = input.closest(".fld"), err = $(".err", f);
@@ -73,7 +78,6 @@ export function initContacto() {
       f.toggleAttribute("data-bad", !ok); if (err) err.textContent = ok ? "" : msgs[input.name];
       input.setAttribute("aria-invalid", String(!ok)); return ok;
     };
-    const captchaToken = () => (widget !== null && window.grecaptcha ? grecaptcha.getResponse(widget) : "");
     $$("[required]", form).forEach(i => {
       i.addEventListener(i.type === "checkbox" ? "change" : "input", () => { if (i.closest(".fld").hasAttribute("data-bad")) check(i); });
       if (i.type !== "checkbox") i.addEventListener("blur", () => { if (i.value) check(i); });
@@ -82,15 +86,12 @@ export function initContacto() {
     form.addEventListener("submit", async e => {
       e.preventDefault(); status.textContent = "";
       const bad = $$("[required]", form).filter(i => !check(i));
-      const token = captchaToken();
-      if (!token) { capBox.closest(".fld").setAttribute("data-bad", ""); capErr.textContent = "Confirma que no eres un robot."; }
       if (bad.length) { bad[0].focus(); return; }
-      if (!token) return;
       const data = Object.fromEntries(new FormData(form));
       delete data.acepto;
-      data.recaptcha = token;
       const btn = $("button[type=submit]", form); btn.disabled = true; status.textContent = "Enviando…";
       try {
+        data.recaptcha = await getToken();
         const r = await fetch(CONFIG.formEndpoint, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) });
         const res = await r.json().catch(() => ({}));
         if (!r.ok || !res.ok) throw new Error(res.error || "");
@@ -99,7 +100,6 @@ export function initContacto() {
       } catch (err) {
         status.textContent = err.message || "No se pudo enviar. Inténtalo nuevamente en unos minutos.";
       }
-      if (window.grecaptcha && widget !== null) grecaptcha.reset(widget);
       btn.disabled = false;
     });
 

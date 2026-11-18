@@ -1,5 +1,5 @@
 <?php
-/* Recibe el formulario de contacto, verifica reCAPTCHA v2 en Google y envía el mensaje por correo. */
+/* Recibe el formulario de contacto, verifica reCAPTCHA v3 en Google y envía el mensaje por correo. */
 declare(strict_types=1);
 
 header('Content-Type: application/json; charset=utf-8');
@@ -58,7 +58,7 @@ if (count($hits) >= $cfg['rate_limit']) {
 
 // Verificación de reCAPTCHA con Google.
 if ($cfg['recaptcha_secret'] === '' || $token === '') {
-    respond(400, ['ok' => false, 'error' => 'Confirma que no eres un robot.']);
+    respond(400, ['ok' => false, 'error' => 'No se pudo verificar el envío. Inténtalo de nuevo.']);
 }
 $post = http_build_query(['secret' => $cfg['recaptcha_secret'], 'response' => $token, 'remoteip' => $ip]);
 $verify = false;
@@ -75,6 +75,9 @@ if (function_exists('curl_init')) {
 $result = json_decode((string)$verify, true);
 if (empty($result['success'])) {
     respond(400, ['ok' => false, 'error' => 'No pudimos verificar el reCAPTCHA. Inténtalo de nuevo.']);
+}
+if (($result['action'] ?? '') !== 'contacto' || (float)($result['score'] ?? 0) < (float)($cfg['min_score'] ?? 0.5)) {
+    respond(400, ['ok' => false, 'error' => 'No pudimos confirmar que el envío es de una persona. Escríbenos a info@simev.cl.']);
 }
 if (!empty($result['hostname']) && !in_array(strtolower($result['hostname']), $cfg['allowed_hosts'], true)) {
     respond(403, ['ok' => false, 'error' => 'Origen no permitido.']);

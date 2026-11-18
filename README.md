@@ -25,7 +25,7 @@ Equipos electrónicos y de oficina, servicio técnico y ciberseguridad para empr
 
 Sitio web de SIMEV, empresa chilena que vende equipos electrónicos y de oficina a empresas, se encarga de su mantenimiento y ofrece un servicio de ciberseguridad.
 
-Está hecho a mano, sin frameworks ni dependencias: HTML, CSS y JavaScript modernos, dos escenas 3D con un motor WebGL2 propio y un formulario de contacto protegido con reCAPTCHA v2 y verificado en el servidor con PHP. Node solo se usa para generar la versión publicable.
+Está hecho a mano, sin frameworks ni dependencias: HTML, CSS y JavaScript modernos, dos escenas 3D con un motor WebGL2 propio y un formulario de contacto protegido con reCAPTCHA v3 y verificado en el servidor con PHP. Node solo se usa para generar la versión publicable.
 
 ## Características
 
@@ -35,13 +35,13 @@ Está hecho a mano, sin frameworks ni dependencias: HTML, CSS y JavaScript moder
 | **Accesible** | Navegación por teclado, foco visible y respeto de `prefers-reduced-motion`. |
 | **Adaptable** | Diseñado desde 320 px hasta pantallas grandes, sin desbordes horizontales. |
 | **Rápido** | Sin dependencias en el navegador, recursos versionados con caché larga y compresión en el servidor. |
-| **Formulario seguro** | reCAPTCHA v2 verificado en PHP, campo trampa, límite de envíos por IP y claves fuera del repositorio. |
+| **Formulario seguro** | reCAPTCHA v3 verificado en PHP, campo trampa, límite de envíos por IP y claves fuera del repositorio. |
 | **Endurecido** | HTTPS obligatorio, cabeceras de seguridad y página 404 propia desde `.htaccess`. |
 | **Legal** | Política de privacidad propia. |
 
 ## Tecnologías
 
-- **Frontend:** HTML5, CSS moderno (variables, `@import`, tipografía variable Archivo) y JavaScript con módulos ES.
+- **Frontend:** HTML5, CSS moderno (variables, `@import`, tipografía del sistema) y JavaScript con módulos ES.
 - **Gráficos:** WebGL2 con shaders y matemáticas propias.
 - **Servidor:** PHP 8 (`mail()` y verificación de reCAPTCHA) sobre Apache con `.htaccess`.
 - **Herramientas:** Node 18+ para el build y el servidor local.
@@ -72,14 +72,14 @@ src/
 │   ├── privacidad.html
 │   └── 404.html
 ├── partials/              Fragmentos HTML reutilizables
-│   ├── head.html · header.html · footer.html · cursor.html · notfound.html
+│   ├── head.html · header.html · footer.html · notfound.html
 │   ├── legal/privacidad.html
 │   └── sections/          Una sección de la portada por archivo
 ├── assets/
 │   ├── css/
 │   │   ├── main.css       Orden de carga (@import); el build lo combina en styles.css
 │   │   ├── base/          Variables, reinicio, tipografía y retícula
-│   │   ├── components/    Botones, navegación, ilustraciones, revelados, cursor
+│   │   ├── components/    Botones, navegación, ilustraciones y revelados
 │   │   ├── sections/      Un archivo por sección de la portada
 │   │   └── pages/         Estilos propios de otras páginas
 │   ├── js/

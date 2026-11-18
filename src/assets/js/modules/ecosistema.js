@@ -91,7 +91,7 @@ export function initEcosistema() {
         nodes += `<g class="nd i" data-id="${l}" tabindex="0" role="button" aria-label="${name(l)}"><rect class="sh" x="${f(x - w / 2)}" y="${f(y - ph / 2)}" width="${f(w)}" height="${ph}" rx="${ph / 2}"/><text x="${f(x)}" y="${f(y + fs * .36)}" text-anchor="middle" font-size="${fs}">${T[l].label}</text></g>`;
       });
       nodes += `<g class="nd c" data-id="core" tabindex="0" role="button" aria-label="Tu empresa"><circle class="sh" cx="${f(cx)}" cy="${f(cy)}" r="${R}"/><text x="${f(cx)}" y="${f(cy - 3)}" text-anchor="middle" font-size="${fs + 1}">Tu</text><text x="${f(cx)}" y="${f(cy + fs + 1)}" text-anchor="middle" font-size="${fs + 1}">empresa</text></g>`;
-      stage.innerHTML = `<svg class="eco" viewBox="0 0 ${W} ${H}" role="group" aria-label="Diagrama: cómo se relacionan la venta de equipos, el mantenimiento y la ciberseguridad"><defs><linearGradient id="eg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f6bff"/><stop offset=".55" stop-color="#7c4dff"/><stop offset="1" stop-color="#ff3d6e"/></linearGradient></defs>${links}${chords}${pulses}${nodes}</svg>`;
+      stage.innerHTML = `<svg class="eco" viewBox="0 0 ${W} ${H}" role="group" aria-label="Diagrama: cómo se relacionan la venta de equipos, el mantenimiento y la ciberseguridad">${links}${chords}${pulses}${nodes}</svg>`;
       svg = $("svg", stage);
       $$(".nd", svg).forEach(g => {
         const id = g.dataset.id;

@@ -1,9 +1,7 @@
 /* Sección: Ecosistema. */
 
 .eco-g{align-items:start;padding-bottom:var(--sec)}
-.eco-stage{grid-column:1 / span 8;position:relative;border:1px solid var(--line);background:
-  linear-gradient(color-mix(in srgb,var(--line) 55%,transparent) 1px,transparent 1px) 0 -1px/100% 32px,
-  linear-gradient(90deg,color-mix(in srgb,var(--line) 55%,transparent) 1px,transparent 1px) -1px 0/32px 100%,var(--panel)}
+.eco-stage{grid-column:1 / span 8;position:relative;border:1px solid var(--line);background:var(--panel)}
 .eco-stage svg{width:100%;height:auto;touch-action:pan-y;user-select:none;-webkit-user-select:none}
 .eco-side{grid-column:9 / span 4;position:sticky;top:calc(var(--nav-h) + 32px);display:grid;gap:18px;align-content:start;padding-left:clamp(0px,1.5vw,24px);min-height:300px}
 .eco-side h3{font-stretch:var(--wide);font-weight:650;font-size:clamp(1.5rem,2.2vw,2.1rem);letter-spacing:-.028em;line-height:1.05}
@@ -36,13 +34,13 @@
 .eco.dim .lk:not(.on){opacity:.07}
 .eco.dim .pu:not(.on){opacity:0}
 @keyframes epu{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
-.eco-stage{border-radius:var(--r-l);overflow:hidden;box-shadow:0 36px 90px -52px color-mix(in srgb,var(--c2) 75%,transparent)}
+.eco-stage{border-radius:var(--r-l);overflow:hidden;box-shadow:none}
 .eco-rel button{border-radius:999px;padding:8px 14px}
 .eco-rel button:hover{border-color:transparent;background:var(--grad);color:#fff}
 .eco .pu{stroke:var(--c2)}
 .eco .ch{stroke:var(--c2)}
 .eco .nd.o .sh{stroke-width:1.4}
-.eco .nd.sel .sh{fill:url(#eg);stroke:transparent}
+.eco .nd.sel .sh{fill:var(--c1);stroke:var(--c1)}
 .eco .nd.o.sel text{fill:var(--fg)}
 @media (max-width:1180px){
   .eco-stage{grid-column:1 / span 7}

@@ -18,9 +18,9 @@
 .top-btn{border:0;background:none;padding:0;font-stretch:var(--narrow);font-weight:600;font-size:.875rem;color:var(--mut);transition:color .25s}
 .top-btn:hover{color:var(--fg)}
 .footer{border-top:0;position:relative}
-.footer::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:var(--grad)}
-.credit a{color:var(--fg);font-weight:600;background:linear-gradient(90deg,#e0245e,#ff5c8a);-webkit-background-clip:text;background-clip:text;color:transparent}
-.credit a:hover{text-decoration:underline;text-decoration-color:#ff5c8a}
+.credit a{color:var(--fg);font-weight:600}
+.credit a:hover{text-decoration:underline}
+.footer .logo{background-image:var(--logo-day)}
 @media (max-width:900px){
   .f-brand{grid-column:1 / -1}
   .f-col.a{grid-column:1 / span 6}

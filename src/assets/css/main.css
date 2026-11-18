@@ -9,12 +9,10 @@
 @import "components/labels.css";
 @import "components/illustrations.css";
 @import "components/reveal.css";
-@import "components/cursor.css";
 @import "sections/hero.css";
 @import "sections/empresa.css";
 @import "sections/soluciones.css";
 @import "sections/ecosistema.css";
-@import "sections/porque.css";
 @import "sections/metodo.css";
 @import "sections/servicio.css";
 @import "sections/aplicaciones.css";

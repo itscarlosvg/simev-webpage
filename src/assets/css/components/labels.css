@@ -1,7 +1,7 @@
 /* Rótulos que acompañan a las escenas 3D. */
 
 .co{position:absolute;left:0;top:0;z-index:2;display:flex;align-items:center;gap:10px;white-space:nowrap;pointer-events:none;opacity:0;font-stretch:var(--narrow);font-weight:600;font-size:.8125rem;letter-spacing:.04em;color:var(--fg);will-change:transform,opacity}
-.co::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 0 4px color-mix(in srgb,var(--red) 28%,transparent)}
+.co::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:none}
 .co i{flex:none;display:block;width:var(--len,60px);height:1px;background:color-mix(in srgb,var(--fg) 55%,transparent)}
 .co.l{flex-direction:row-reverse}
-.co::before{background:var(--c3);box-shadow:0 0 0 4px color-mix(in srgb,var(--c3) 28%,transparent)}
+.co::before{background:var(--c3);box-shadow:none}

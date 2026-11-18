@@ -90,7 +90,7 @@ export function Stage(canvas) {
   return { gl, batch, setPoints, size, render };
 }
 
-export const NIGHT = [7 / 255, 10 / 255, 31 / 255];
+export const NIGHT = [0, 0, 0];
 export const isoFallback = svg => {
   svg.removeAttribute("hidden"); svg.setAttribute("viewBox", "0 0 1000 700"); svg.setAttribute("preserveAspectRatio", "xMidYMid slice");
   let o = "";

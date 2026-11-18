@@ -7,5 +7,5 @@ export const CONFIG = {
   linkedin: "",       // URL completa
   instagram: "",      // URL completa
   formEndpoint: "api/enviar.php",   // script PHP que verifica el reCAPTCHA y envía el correo
-  recaptchaSiteKey: "6Ld6LR0uAAAAALi-QhFT9f_lp0DTc6EbU-CRB5RL"             // clave del sitio de reCAPTCHA v2 (pública)
+  recaptchaSiteKey: "6Lc1xyUuAAAAACujlgtUUmuCuaMEE04JkOtQsKFn"             // clave del sitio de reCAPTCHA v3 (pública)
 };

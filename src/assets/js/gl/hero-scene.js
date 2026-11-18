@@ -23,7 +23,7 @@ export function initHeroScene() {
     const m = new Float32Array([cz, sz, 0, 0, -sz * ca, cz * ca, sa, 0, sz * sa, -cz * sa, ca, 0, 0, cy, 0, 1]);
     return { r, w: .008, sp, ph, col, m, head: 0, at: a => { const x = Math.cos(a) * r, z = Math.sin(a) * r; return [m[0] * x + m[8] * z, m[1] * x + m[9] * z + cy, m[2] * x + m[10] * z]; } };
   };
-  const rings = [ringOf(2.3, .34, .12, 1.4, .05, 0, [.42, .6, 1]), ringOf(2.95, -.22, .26, 2.3, .036, .4, [.68, .5, 1]), ringOf(3.6, .14, -.2, 3.0, .026, .75, [1, .3, .52])];
+  const rings = [ringOf(2.3, .34, .12, 1.4, .05, 0, [.42, .6, 1]), ringOf(2.95, -.22, .26, 2.3, .036, .4, [.42, .6, 1]), ringOf(3.6, .14, -.2, 3.0, .026, .75, [.42, .6, 1])];
   const labels = $$(".hero .co").map(el => ({ el, z: +el.dataset.z }));
   const zw = [1.36, 1.04, .82];
   const t0 = performance.now(); let last = t0;

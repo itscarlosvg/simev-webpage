@@ -9,10 +9,9 @@
   linear-gradient(var(--line),var(--line)) 0 50%/100% 1px no-repeat,
   radial-gradient(closest-side,transparent 24.6%,var(--line) 24.6% 25.3%,transparent 25.3% 49.6%,var(--line) 49.6% 50.3%,transparent 50.3% 74.6%,var(--line) 74.6% 75.3%,transparent 75.3%),
   var(--panel)}
-.radar::before{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,transparent 0 290deg,color-mix(in srgb,var(--acc) 55%,transparent) 360deg);animation:sweep 5s linear infinite}
 .radar::after{content:"";position:absolute;left:50%;top:50%;width:10px;height:10px;margin:-5px;border-radius:50%;background:var(--fg)}
 .radar i{position:absolute;left:var(--x);top:var(--y);width:10px;height:10px;margin:-5px;border-radius:50%;background:var(--acc);animation:blip 5s linear infinite;animation-delay:var(--d)}
-.radar i.r{background:var(--red);box-shadow:0 0 0 6px color-mix(in srgb,var(--red) 30%,transparent)}
+.radar i.r{background:var(--red);box-shadow:none}
 @keyframes blip{0%{opacity:1;transform:scale(1.7)}25%{opacity:.65;transform:none}100%{opacity:.3}}
 .cy-list{grid-column:7 / span 6;display:grid;gap:14px}
 .hu li{display:grid;grid-template-columns:6.2rem minmax(0,11.5rem) minmax(0,1fr);gap:4px 18px;align-items:baseline;padding:15px 0;border-top:1px solid var(--line);position:relative}
@@ -32,10 +31,9 @@
 .cy-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:28px;margin-top:clamp(40px,5vw,64px);padding-top:28px;border-top:1px solid var(--line)}
 .fw{display:flex;flex-wrap:wrap;gap:8px}
 .fw li{border:1px solid var(--line);padding:7px 12px;border-radius:3px;font-stretch:var(--narrow);font-weight:600;font-size:.875rem}
-.radar{border-color:color-mix(in srgb,var(--c2) 55%,transparent);box-shadow:0 0 90px -24px color-mix(in srgb,var(--c2) 80%,transparent)}
-.radar::before{background:conic-gradient(from 0deg,transparent 0 270deg,color-mix(in srgb,var(--c2) 60%,transparent) 335deg,color-mix(in srgb,var(--c1) 85%,transparent) 360deg)}
+.radar{border-color:color-mix(in srgb,var(--c2) 55%,transparent);box-shadow:none}
 .radar i{background:#9db8ff}
-.radar i.r{background:var(--c3);box-shadow:0 0 0 6px color-mix(in srgb,var(--c3) 30%,transparent)}
+.radar i.r{background:var(--c3);box-shadow:none}
 .hu li{grid-template-columns:7.6rem minmax(0,11.5rem) minmax(0,1fr);align-items:center}
 .hu li::before{background:var(--grad)}
 .hu b{justify-self:start;padding:5px 12px;border-radius:999px;background:color-mix(in srgb,var(--c2) 28%,transparent);color:var(--fg);font-size:.8125rem;letter-spacing:.02em}
@@ -53,3 +51,4 @@
 @media (max-width:520px){
   .cy-serv{grid-template-columns:1fr}
 }
+.radar::before{display:none}

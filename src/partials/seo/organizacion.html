@@ -1,0 +1,39 @@
+<!-- Datos estructurados (schema.org): la empresa y el sitio -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://simev.cl/#organizacion",
+      "name": "SIMEV",
+      "legalName": "Servicios Integrales MEV SpA",
+      "url": "https://simev.cl/",
+      "logo": "https://simev.cl/assets/img/logo-day.png",
+      "image": "https://simev.cl/assets/img/og-simev.png",
+      "description": "Venta y mantenimiento de equipos electrónicos y de oficina, y servicio de ciberseguridad para empresas en Chile.",
+      "email": "info@simev.cl",
+      "telephone": "+56946654808",
+      "address": { "@type": "PostalAddress", "addressCountry": "CL" },
+      "areaServed": { "@type": "Country", "name": "Chile" },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "email": "info@simev.cl",
+        "telephone": "+56946654808",
+        "areaServed": "CL",
+        "availableLanguage": "es"
+      },
+      "knowsAbout": ["Equipos electrónicos", "Equipos de oficina", "Mantenimiento de equipos", "Servicio técnico", "Ciberseguridad"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://simev.cl/#sitio",
+      "url": "https://simev.cl/",
+      "name": "SIMEV",
+      "inLanguage": "es-CL",
+      "publisher": { "@id": "https://simev.cl/#organizacion" }
+    }
+  ]
+}
+</script>

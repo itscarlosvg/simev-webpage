@@ -38,6 +38,7 @@ Está hecho a mano, sin frameworks ni dependencias: HTML, CSS y JavaScript moder
 | **Formulario seguro** | reCAPTCHA v3 verificado en PHP, campo trampa, límite de envíos por IP y claves fuera del repositorio. |
 | **Endurecido** | HTTPS obligatorio, cabeceras de seguridad y página 404 propia desde `.htaccess`. |
 | **Legal** | Política de privacidad propia. |
+| **Listo para Google** | Sitemap, robots, canonical, Open Graph y datos estructurados de schema.org (empresa, servicios y preguntas frecuentes). |
 
 ## Tecnologías
 
@@ -74,6 +75,7 @@ src/
 ├── partials/              Fragmentos HTML reutilizables
 │   ├── head.html · header.html · footer.html · notfound.html
 │   ├── legal/privacidad.html
+│   ├── seo/               Datos estructurados de schema.org
 │   └── sections/          Una sección de la portada por archivo
 ├── assets/
 │   ├── css/
@@ -91,12 +93,13 @@ src/
 │   └── img/
 └── public/                Se copia tal cual a la raíz del sitio
     ├── .htaccess          HTTPS, caché, compresión, cabeceras y 404
-    ├── robots.txt · sitemap.xml
+    ├── robots.txt · sitemap.xml · site.webmanifest
     └── api/
         ├── enviar.php           Recibe el formulario, verifica reCAPTCHA y envía el correo
         ├── config.example.php   Plantilla de configuración (la real no se sube)
         └── .htaccess            Solo deja acceder a enviar.php
 scripts/                   Build, servidor local y versión de un solo archivo
+docs/SEO.md                Guía de indexación en Google
 ```
 
 ### Parciales y variables
@@ -123,6 +126,10 @@ La clave secreta, el destinatario y el remitente están en `src/public/api/confi
 3. Sube el **contenido** de `dist/` a `public_html`. Activa «Mostrar archivos ocultos» para ver los `.htaccess`.
 4. Activa SSL con AutoSSL. `.htaccess` ya redirige a `https://simev.cl` sin www.
 5. Crea la cuenta `no-reply@simev.cl` y activa SPF y DKIM en **Correo → Entregabilidad**.
+
+## Indexación en Google
+
+Todo lo que trae el sitio para buscadores y los pasos para darlo de alta en Google Search Console están en [docs/SEO.md](docs/SEO.md).
 
 ## Autor
 

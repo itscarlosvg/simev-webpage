@@ -39,10 +39,20 @@ const renderPage = file => {
   });
   html = include(html);
   html = html.replace(/\{\{(\w+)\}\}/g, (m, k) => (k in vars ? vars[k] : m));
+  html = html.replace(/^([ \t]*)<!-- @faq-jsonld -->$/m, (_, ind) => ind + faqJsonLd(html));
   return html
     .replace(/href="(\/?)assets\/css\/main\.css"/, `href="$1assets/css/styles.css?v=${version}"`)
     .replace(/src="(\/?)assets\/js\/main\.js"/, `src="$1assets/js/main.js?v=${version}"`);
 };
+
+// Preguntas frecuentes en schema.org, generadas desde la sección de preguntas para que nunca se desincronicen.
+const plain = h => h.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+function faqJsonLd(html) {
+  const items = [...html.matchAll(/class="qa-q"[^>]*>([\s\S]*?)<span[\s\S]*?class="qa-a"[^>]*>([\s\S]*?)<\/div><\/div><\/div>/g)]
+    .map(([, q, a]) => ({ "@type": "Question", name: plain(q), acceptedAnswer: { "@type": "Answer", text: plain(a) } }));
+  const json = JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: items }).replace(/</g, "\\u003c");
+  return `<script type="application/ld+json">${json}</script>`;
+}
 
 rmSync(DIST, { recursive: true, force: true });
 for (const page of readdirSync(join(SRC, "pages"))) write(join(DIST, page), renderPage(join(SRC, "pages", page)));
@@ -53,5 +63,9 @@ for (const f of jsFiles) {
 }
 for (const f of walk(join(SRC, "assets/img"))) { mkdirSync(dirname(join(DIST, relative(SRC, f))), { recursive: true }); copyFileSync(f, join(DIST, relative(SRC, f))); }
 for (const f of walk(join(SRC, "public"))) { if (f.endsWith(".example.php")) continue; const out = join(DIST, relative(join(SRC, "public"), f)); mkdirSync(dirname(out), { recursive: true }); copyFileSync(f, out); }
+
+// Sitemap con la fecha de la última generación.
+const today = new Date().toISOString().slice(0, 10);
+write(join(DIST, "sitemap.xml"), read(join(DIST, "sitemap.xml")).replace(/\{\{lastmod\}\}/g, today));
 
 console.log(`dist/ generado (versión ${version})`);

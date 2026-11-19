@@ -7,7 +7,7 @@
 
 ### Sitio corporativo de Servicios Integrales MEV SpA
 
-Equipos electrónicos y de oficina, servicio técnico y ciberseguridad para empresas en Chile.
+Empresa de tecnología: software, equipos electrónicos y de oficina, servicio técnico y ciberseguridad para empresas.
 
 [![Sitio](https://img.shields.io/badge/sitio-simev.cl-2f6bff?style=for-the-badge)](https://simev.cl)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
@@ -23,7 +23,7 @@ Equipos electrónicos y de oficina, servicio técnico y ciberseguridad para empr
 
 ## Sobre el proyecto
 
-Sitio web de SIMEV, empresa chilena que vende equipos electrónicos y de oficina a empresas, se encarga de su mantenimiento y ofrece un servicio de ciberseguridad.
+Sitio web de SIMEV, empresa de tecnología que desarrolla software, vende equipos electrónicos y de oficina a empresas, se encarga de su mantenimiento y ofrece un servicio de ciberseguridad.
 
 Está hecho a mano, sin frameworks ni dependencias: HTML, CSS y JavaScript modernos, dos escenas 3D con un motor WebGL2 propio y un formulario de contacto protegido con reCAPTCHA v3 y verificado en el servidor con PHP. Node solo se usa para generar la versión publicable.
 

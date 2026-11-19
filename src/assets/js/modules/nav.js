@@ -16,7 +16,6 @@ export function initNav() {
         if (r.top <= 38 && r.bottom > 38) top = s;
       }
       if (mid) {
-        if (document.body.dataset.tone !== mid.dataset.t) document.body.dataset.tone = mid.dataset.t;
         links.forEach(a => a.getAttribute("href") === "#" + mid.id ? a.setAttribute("aria-current", "true") : a.removeAttribute("aria-current"));
       }
       if (top) { const t = top.dataset.t === "blue" ? "night" : top.dataset.t; if (nav.dataset.tone !== t) nav.dataset.tone = t; }

@@ -1,0 +1,6 @@
+/* Transiciones suaves entre secciones oscuras y claras. */
+
+.fade{display:block;height:clamp(160px,26vh,300px);margin:-1px 0;position:relative;z-index:1;pointer-events:none}
+.fade-nd{background:linear-gradient(180deg,#000 0%,#0b0b0c 12%,#26262a 28%,#5b5b61 44%,#9c9ca2 60%,#d4d4d8 76%,#f4f4f6 90%,#fff 100%)}
+.fade-dn{background:linear-gradient(0deg,#000 0%,#0b0b0c 12%,#26262a 28%,#5b5b61 44%,#9c9ca2 60%,#d4d4d8 76%,#f4f4f6 90%,#fff 100%)}
+.fade-dc{background:linear-gradient(0deg,#161617 0%,#202022 12%,#36363a 28%,#66666b 44%,#a2a2a7 60%,#d6d6da 76%,#f5f5f7 90%,#fff 100%)}

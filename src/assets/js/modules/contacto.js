@@ -37,7 +37,7 @@ export function initContacto() {
       const w = el.parentElement.clientWidth;
       el.style.fontSize = "100px";
       const tw = el.getBoundingClientRect().width;
-      el.style.fontSize = Math.min(Math.floor(100 * w / tw * .985), 260) + "px";
+      el.style.fontSize = Math.min(Math.floor(100 * w / tw * .985), +el.dataset.fitMax || 260) + "px";
     });
     fit(); onResize(fit);
     if (document.fonts && document.fonts.ready) { document.fonts.ready.then(fit); document.fonts.addEventListener && document.fonts.addEventListener("loadingdone", () => { fit(); runResize(); }); }

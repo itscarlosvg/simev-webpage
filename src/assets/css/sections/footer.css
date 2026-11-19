@@ -17,10 +17,13 @@
 .f-bottom{grid-column:1 / -1;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 28px;border-top:1px solid var(--line);padding-top:22px}
 .top-btn{border:0;background:none;padding:0;font-stretch:var(--narrow);font-weight:600;font-size:.875rem;color:var(--mut);transition:color .25s}
 .top-btn:hover{color:var(--fg)}
-.footer{border-top:0;position:relative}
+.footer{border-top:0;position:relative;overflow:hidden}
+.footer-g{border-top:1px solid var(--line)}
+.f-mark{grid-column:1 / -1;margin:clamp(8px,2vw,24px) 0 -.06em;line-height:.8;white-space:nowrap;user-select:none}
+.f-mark span{display:inline-block;font-size:clamp(80px,28vw,430px);font-weight:700;letter-spacing:-.045em;color:#2c2c2e;transition:color .6s var(--ease)}
+.footer:hover .f-mark span{color:#3a3a3c}
 .credit a{color:var(--fg);font-weight:600}
 .credit a:hover{text-decoration:underline}
-.footer .logo{background-image:var(--logo-day)}
 @media (max-width:900px){
   .f-brand{grid-column:1 / -1}
   .f-col.a{grid-column:1 / span 6}

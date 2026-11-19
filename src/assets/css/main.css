@@ -9,6 +9,7 @@
 @import "components/labels.css";
 @import "components/illustrations.css";
 @import "components/reveal.css";
+@import "components/fade.css";
 @import "sections/hero.css";
 @import "sections/empresa.css";
 @import "sections/soluciones.css";
